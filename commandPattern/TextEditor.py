@@ -30,7 +30,7 @@ class Command(ABC):
 
 #  Implement Concrete Command Classes
 class InsertTextCommand(Command):
-    def __init__(self, document, text):
+    def __init__(self, document:Document, text):
         self.document = document
         self.text = " "+text
         self.position = len(self.document.text)  # Always append at the end
@@ -45,7 +45,7 @@ class InsertTextCommand(Command):
         self.execute()
 
 class DeleteTextCommand(Command):
-    def __init__(self, document, length):
+    def __init__(self, document: Document , length):
         self.document = document
         self.length = length
         self.position = len(self.document.text) - length
